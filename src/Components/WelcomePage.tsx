@@ -1,32 +1,35 @@
 import React from "react";
-import Typed from "typed.js"
+import Typed from "typed.js";
 
 export interface Props {
-    handlePageChange: () => void
+	handlePageChange: () => void;
 }
 
-export default function WelcomePage(props: Props){
-    React.useEffect(() => {
+export default function WelcomePage(props: Props) {
+	React.useEffect(() => {
 		const options: {
-            strings: string[]
-            showCursor: boolean
-            typeSpeed: number
-        } = {
+			strings: string[];
+			showCursor: boolean;
+			typeSpeed: number;
+		} = {
 			strings: ["Welcome to BetterEveryDay"],
 			showCursor: false,
 			typeSpeed: 50,
 		};
 		const optionsText: {
-            strings: string[]
-            startDelay: number
-            typeSpeed: number
-            backSpeed: number
-        }  = {
+			strings: string[];
+			startDelay: number;
+			typeSpeed: number;
+			backSpeed: number;
+		} = {
 			...options,
-			strings: ["The only place <strong>you need</strong> to maintain your habbits.","The only place <strong>you need</strong> to become a better version of yourself."],
+			strings: [
+				"The only place <strong>you need</strong> to maintain your habbits.",
+				"The only place <strong>you need</strong> to become a better version of yourself.",
+			],
 			startDelay: 2200,
 			typeSpeed: 40,
-            backSpeed: 40
+			backSpeed: 40,
 		};
 
 		const typedHeader = new Typed(".header-container", options);
@@ -38,13 +41,30 @@ export default function WelcomePage(props: Props){
 		};
 	}, []);
 
-    return(
-        <div className="flex justify-center items-center flex-wrap bg-linen h-screen text-center">
-            <div>
-                <h1 className="header-container text-7xl w-full"></h1>
-                <p className="text-container text-2xl my-8"></p>
-                <button onClick={props.handlePageChange} className="px-8 py-4  rounded-xl border-2 border-paleSilver">Begin your journey</button>
-            </div>
-        </div>
-    )
+	function handleChange(event: any): void {
+		localStorage.setItem("username", event.target.value);
+	}
+
+	return (
+		<div className="flex justify-center items-center flex-wrap bg-linen h-screen text-center">
+			<div>
+				<h1 className="header-container text-7xl w-full"></h1>
+				<p className="text-container text-2xl my-8"></p>
+				<div className="w-full">
+					<input
+						onChange={handleChange}
+						className="bg-inherit p-2 rounded-lg border-2 border-paleSilver"
+						placeholder="Tell us your name!"
+						type="text"
+					/>
+				</div>
+				<button
+					onClick={props.handlePageChange}
+					className="px-8 py-4 my-4 rounded-xl border-2 border-paleSilver hover:shadow-lg active:translate-y-0.5 active:shadow-xl"
+				>
+					Begin your journey
+				</button>
+			</div>
+		</div>
+	);
 }
