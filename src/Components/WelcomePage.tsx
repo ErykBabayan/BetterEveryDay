@@ -5,6 +5,10 @@ export interface Props {
 	handlePageChange: () => void;
 }
 
+function handleChange(event: any): void {
+	localStorage.setItem("username", event.target.value);
+}
+
 export default function WelcomePage(props: Props) {
 	React.useEffect(() => {
 		const options: {
@@ -40,10 +44,6 @@ export default function WelcomePage(props: Props) {
 			typedText.destroy();
 		};
 	}, []);
-
-	function handleChange(event: any): void {
-		localStorage.setItem("username", event.target.value);
-	}
 
 	return (
 		<div className="flex justify-center items-center flex-wrap bg-linen h-screen text-center">

@@ -4,11 +4,11 @@ import WelcomePage from "./Components/WelcomePage";
 import Journal from "./Components/Journal";
 
 function App() {
-	const [hasAppStarted, setHasAppStarted] = React.useState(false);
+	const [hasAppStarted, setHasAppStarted] = React.useState(localStorage.getItem("welcomePageShown"));
 	const username: string | null = localStorage.getItem("username") === null ? "Guest" : localStorage.getItem("username");
 
 	function startApp(): void {
-		setHasAppStarted((prevHasAppStarted) => !prevHasAppStarted);
+		setHasAppStarted("shown");
 		localStorage.setItem("welcomePageShown", "shown");
 	}
 
