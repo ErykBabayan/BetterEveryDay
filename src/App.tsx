@@ -16,8 +16,8 @@ function App() {
 		<div className="bg-linen">
 			{!hasAppStarted && <WelcomePage handlePageChange={startApp} />}
 			{hasAppStarted && (
-				<div className="h-screen p-10">
-					<div>Hi, {username}!</div>
+				<div className="h-screen p-4 md:p-10">
+					<div className="text-xl sm:text-2xl md:text-3xl">Hi, {username} 👋!</div>
 					<Journal />
 				</div>
 			)}

@@ -48,12 +48,12 @@ export default function WelcomePage(props: Props) {
 	return (
 		<div className="flex justify-center items-center flex-wrap bg-linen h-screen text-center">
 			<div>
-				<h1 className="header-container text-7xl w-full"></h1>
-				<p className="text-container text-2xl my-8"></p>
-				<div className="w-full">
+				<h1 className="header-container text-4xl md:text-5xl lg:text-7xl px-6 w-full">Welcome to BetterEveryDay</h1>
+				<p className="text-container text-lg md:text-2xl my-8 px-6"></p>
+				<div className="w-full mt-16">
 					<input
 						onChange={handleChange}
-						className="bg-inherit p-2 rounded-lg border-2 border-paleSilver"
+						className="bg-inherit p-2 rounded-lg border-2 text-center border-paleSilver"
 						placeholder="Tell us your name!"
 						type="text"
 					/>
