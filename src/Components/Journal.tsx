@@ -1,5 +1,5 @@
 import React from "react";
-import Entry from "./Entry";
+import UserInput from "./UserInput";
 
 export interface Props {}
 
@@ -13,7 +13,7 @@ export default function Journal(props: Props) {
 
 	return (
 		<div className="flex flex-wrap justify-center align-bottom">
-			<Entry getEntryData={getEntryData} />
+			<UserInput getEntryData={getEntryData} />
 		</div>
 	);
 }

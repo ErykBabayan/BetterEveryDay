@@ -4,7 +4,7 @@ export interface Props {
 	getEntryData: (event: any) => void;
 }
 
-export default function Entry(props: Props) {
+export default function UserInput(props: Props) {
 	return (
 		<React.Fragment>
 			<h2 className="mt-24 text-2xl sm:text-3xl lg:text-5xl  text-center">What have you accomplished today?</h2>
