@@ -2,13 +2,14 @@ import React from "react";
 
 export interface Props {
 	getEntryData: (event: any) => void;
+	addEntry: () => void;
 }
 
 export default function UserInput(props: Props) {
 	return (
 		<React.Fragment>
 			<h2 className="mt-24 text-2xl sm:text-3xl lg:text-5xl  text-center">What have you accomplished today?</h2>
-			<form className="w-full flex flex-wrap justify-center mt-12">
+			<form autoComplete="off" className="w-full flex flex-wrap justify-center mt-12">
 				<input
 					onChange={props.getEntryData}
 					id="entryTopic"
@@ -26,13 +27,14 @@ export default function UserInput(props: Props) {
 					></textarea>
 				</div>
 				<button
+					onClick={props.addEntry}
 					type="button"
-					className="px-8 py-4 my-8 w-5/6 md:w-4/6 xl:w-3/6 rounded-xl border-2 border-paleSilver hover:shadow-lg active:translate-y-0.5 active:shadow-xl"
+					className="py-3 my-8 w-5/6 md:w-4/6 xl:w-3/6 text-xl rounded-xl border-2 border-paleSilver hover:shadow-lg active:translate-y-0.5 active:shadow-xl"
 				>
-					Add
+					ADD
 				</button>
+				<hr className="w-5/6 xl:w-4/6 h-0.5 bg-paleSilver my-3" />
 			</form>
-			<hr className="w-5/6 xl:w-4/6 h-0.5 bg-paleSilver my-3" />
 		</React.Fragment>
 	);
 }
