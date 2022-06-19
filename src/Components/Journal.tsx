@@ -20,9 +20,11 @@ export default function Journal(props: Props) {
 			topic: userTopicInput,
 			description: userDescriptionInput,
 		};
-		currentEntries.push(inputEntry);
+
+		if (inputEntry.topic && inputEntry.description) currentEntries.push(inputEntry);
+
 		allEntries.forEach((entry) => {
-			currentEntries.push(entry);
+			if (entry.topic && entry.description) currentEntries.push(entry);
 		});
 		console.log(currentEntries);
 		setAllEntries(currentEntries);
@@ -30,7 +32,7 @@ export default function Journal(props: Props) {
 	return (
 		<div className="flex flex-wrap justify-center">
 			<UserInput getEntryData={getEntryData} addEntry={addEntry} />
-			<EntriesLog />
+			<EntriesLog userEntries={allEntries} />
 		</div>
 	);
 }
